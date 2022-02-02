@@ -102,3 +102,7 @@ dist
 # dotenv environment variables file
 .env
 .env.test
+
+
+words.txt
+letters.txt

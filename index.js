@@ -1,7 +1,6 @@
 // Requirements
 const { CommandoClient } = require("discord.js-commando");
 const path = require("path");
-const Discord = require("discord.js");
 
 // Constants
 const dotenv = require("dotenv");
@@ -37,13 +36,32 @@ client.registry
 client.once("ready", async () => {
   console.log(`Logged in as ${client.user.tag}! (${client.user.id})`) ;
 
+  // getWordsAndLetters()
+});
+
+client.once("message", message => {
+  message.reply("I like boobs");
+
+});
+
+client.on("error", console.error);
+
+// Login
+client.login(TOKEN);
+
+// Server
+const app = require("express")();
+app.get("/", (req, res) => res.send("Server is live"));
+app.listen(3000, () => console.log("Listening on port 3000"));
+
+function getWordsAndLetters() {
   // Get all channels from all servers
   let channels = client.channels.cache.array();
 
   // Remove all non-text channels
   channels = channels.filter(channel => {
     return channel.type == "text";
-  })
+  });
 
   // Gets channel info
   channels.forEach((channel, i) => {
@@ -54,18 +72,18 @@ client.once("ready", async () => {
 
     channels[i] = {
       name, id, lastMessageID, messages
-    }
+    };
   });
 
   // Fetches the last (x) messagees from each channel
   let rawWords = [];
   let promises = [];
-  channels.forEach(async (channel, i) => {
+  channels.forEach(async (channel) => {
     promises.push(channel.messages.fetch({limit: 100}).then(messages => {
-      messages.forEach((message, i) => {
-        rawWords.push(message.content.replace(/[^a-zA-Z0-9 ]/g, '').toLowerCase().split(" "));
+      messages.forEach((message) => {
+        rawWords.push(message.content.replace(/[^a-zA-Z0-9 ]/g, "").toLowerCase().split(" "));
       });
-    }))
+    }));
   });
 
   // Once all messages are got
@@ -73,9 +91,9 @@ client.once("ready", async () => {
   let letters = [];
   Promise.all(promises).then(() => {
     // console.log(rawWords.flat());
-    rawWords.flat().forEach((word, i) => {
+    rawWords.flat().forEach((word) => {
       let present = false;
-      words.forEach((checkWord, i) => {
+      words.forEach((checkWord) => {
         if(word == checkWord.word) {
           present = true;
           checkWord.count++;
@@ -86,13 +104,13 @@ client.once("ready", async () => {
         words.push({
           word: word,
           count: 1
-        })
+        });
       }
 
       let letterSet = word.split("");
-      letterSet.forEach((letter, i) => {
+      letterSet.forEach((letter) => {
         let present = false;
-        letters.forEach((checkLetter, i) => {
+        letters.forEach((checkLetter) => {
           if(letter == checkLetter.letter) {
             present = true;
             checkLetter.count++;
@@ -103,7 +121,7 @@ client.once("ready", async () => {
           letters.push({
             letter: letter,
             count: 1
-          })
+          });
         }
 
       });
@@ -117,40 +135,25 @@ client.once("ready", async () => {
 
 
     // Write to a file
-    let wordResult = ""
-    words.forEach((word, i) => {
-      wordResult += `${word.word}: ${word.count}\n`
+    let wordResult = "";
+    words.forEach((word) => {
+      wordResult += `${word.word}: ${word.count}\n`;
     });
 
     let letterResult = "";
-    letters.forEach((letter, i) => {
-      letterResult += `${letter.letter}: ${letter.count}\n`
+    letters.forEach((letter) => {
+      letterResult += `${letter.letter}: ${letter.count}\n`;
     });
 
 
     fs.writeFile("words.txt", wordResult, (err) => {
       if(err) throw err;
-    })
+    });
     console.log("Finished writing words");
 
     fs.writeFile("letters.txt", letterResult, (err) => {
       if(err) throw err;
-    })
+    });
     console.log("Finished writing letters");
-  })
-});
-
-client.once("message", message => {
-  message.reply("I like boobs");
-
-})
-
-client.on("error", console.error);
-
-// Login
-client.login(TOKEN)
-
-// Server
-const app = require("express")();
-app.get("/", (req, res) => res.send("Server is live"));
-app.listen(3000, () => console.log("Listening on port 3000"));
+  });
+}
