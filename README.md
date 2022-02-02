@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # TemplateBot
 
 A very simple bot for discord. Should be expanded to do other things
@@ -10,3 +11,7 @@ A very simple bot for discord. Should be expanded to do other things
 
 ## Running
 Simply run `node .` or `npm start`!
+=======
+# BigShot
+Spamton
+>>>>>>> 012d9db597411614df6c3ff3d2059ba0f461e94f
