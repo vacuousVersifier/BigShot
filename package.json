@@ -4,9 +4,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "lint": "eslint . --fix",
-    "startNodemon": "nodemon ."
+    "start": "node bot/main.js",
+    "lint": "eslint . --fix"
   },
   "repository": {
     "type": "git",
@@ -15,14 +14,14 @@
   "keywords": [
     "Discord.js",
     "bot",
-    "frog"
+    "Spamton"
   ],
   "author": "vacuousVersifer",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/vacuousVersifer/TemplateBot/issues"
+    "url": "https://github.com/vacuousVersifer/Spamton/issues"
   },
-  "homepage": "https://github.com/vacuousVersifer/TemplateBot",
+  "homepage": "https://github.com/vacuousVersifer/Spamton",
   "dependencies": {
     "@vacuousversifer/discord-big-letterifier": "^1.0.0",
     "cron": "^1.8.2",
