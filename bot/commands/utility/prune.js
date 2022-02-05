@@ -16,7 +16,7 @@ module.exports = class PruneCommand extends Command {
       args: [
         {
           key: "amount",
-          prompt: "How many messages do you want to delete? 1-99",
+          prompt: "How many [[rapidly shrinking]] messages do you want to [[REMOVE ALL VIRUSES]]",
           type: "integer"
         }
       ]
@@ -25,13 +25,13 @@ module.exports = class PruneCommand extends Command {
 
   run(message, { amount }) {
     if (amount <= 1 || amount > 100) {
-      return message.reply("You need to input a number between 1 and 99.");
+      return message.reply("That's not between [ONE CENT] and [[99% off!!]]");
     }
 
     message.channel.bulkDelete(amount, true).catch(err => {
       console.error(err);
       message.channel.send(
-        "There was an error trying to prune messages in this channel!"
+        "OW IT BURNS! IT [cleans right off] MY FLESH!"
       );
     });
   }

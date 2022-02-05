@@ -16,7 +16,7 @@ module.exports = class ReactCommand extends Command {
       args: [
         {
           key: "emoji",
-          prompt: "What emoji would you like me to react with?",
+          prompt: "What [EMOTICON] would you like me to [[bleach REACTS with vinegar]] with?",
           type: "default-emoji"
         }
       ]

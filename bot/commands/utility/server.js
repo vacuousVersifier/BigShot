@@ -18,7 +18,7 @@ module.exports = class ServerCommand extends Command {
 
   run(message) {
     message.say(
-      `Server name: ${message.guild.name}\nTotal members: ${message.guild.memberCount}`
+      `Server name: ${message.guild.name}\nTotal [LITTLE SPONGE]s: ${message.guild.memberCount}`
     );
   }
 };

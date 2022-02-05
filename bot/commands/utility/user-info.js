@@ -16,7 +16,7 @@ module.exports = class UserCommand extends Command {
       args: [
         {
           key: "target",
-          prompt: "What user do you want to research?",
+          prompt: "Which [[LITTLE SPONGE]] do you want to [Read at the Library!!!]",
           type: "user",
           default: ""
         }
@@ -30,7 +30,7 @@ module.exports = class UserCommand extends Command {
         `Your username: ${message.author.username}\nYour ID: ${message.author.id}`
       );
     }
-    
+
     return message.say(
       `Their username: ${target.username}\nTheir ID: ${target.id}`
     );

@@ -1,12 +1,12 @@
 const { Command } = require("discord.js-commando");
 
-module.exports = class SpeakInChannelCommand extends Command {
+module.exports = class SayInChannel extends Command {
   constructor(client) {
     super(client, {
-      name: "speakinchannel",
+      name: "sayinchannel",
       aliases: [],
       group: "fun",
-      memberName: "speakinchannel",
+      memberName: "sayinchannel",
       description: "Says something in the channel specified",
       guildOnly: true,
       ownerOnly: false,
@@ -16,12 +16,12 @@ module.exports = class SpeakInChannelCommand extends Command {
       args: [
         {
           key: "text",
-          prompt: "What would you like me to say?",
+          prompt: "What would you like me to [SCREAM], you [[hochi mama]]?",
           type: "string"
         },
         {
           key: "channel",
-          prompt: "What channel do you want me to send the message in?",
+          prompt: "What [[Channel 34]] do you want me to send the [[Telegrams 50% off!]] in?",
           type: "text-channel"
         }
       ]

@@ -16,7 +16,7 @@ module.exports = class ReactCommand extends Command {
       args: [
         {
           key: "target",
-          prompt: "Who's avatar do you want?",
+          prompt: "Who's [Dazzling Faces!] do you want to [[Observatory]]",
           type: "user",
           default: ""
         }

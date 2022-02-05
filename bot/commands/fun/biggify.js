@@ -17,7 +17,7 @@ module.exports = class BiggifyCommand extends Command {
       args: [
         {
           key: "text",
-          prompt: "What do you want to biggify?",
+          prompt: "What do you want to [[SUPER SIZE]]?",
           type: "string"
         }
       ]

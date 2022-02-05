@@ -1,17 +1,15 @@
-<<<<<<< HEAD
-# TemplateBot
+# Spamton
 
-A very simple bot for discord. Should be expanded to do other things
+Hey   Every!
+Its me
+
+SPAMTON G.
+
+SPAMTON!!!
 
 ## Setup
-- Put `PREFIX` and `TOKEN` into `.env`
-- Uncomment `.env` and `.eslintrc.json` in `.gitignore`
-- Run `npm i`
-- Run `node dbInit`
+- [[INSERT]] your [Prefix] and [[SPECIAL TOKEN]] in `.env`
+- [[RUN AWAY!!!!!]] `npm i`
 
 ## Running
-Simply run `node .` or `npm start`!
-=======
-# BigShot
-Spamton
->>>>>>> 012d9db597411614df6c3ff3d2059ba0f461e94f
+[[Simple as "Just add water!"]] run or `npm run start`!

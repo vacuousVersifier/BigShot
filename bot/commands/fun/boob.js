@@ -1,13 +1,13 @@
 const { Command } = require("discord.js-commando");
 
-module.exports = class PingCommand extends Command {
+module.exports = class BoobCommand extends Command {
   constructor(client) {
     super(client, {
-      name: "beep",
+      name: "boob",
       aliases: [],
       group: "fun",
-      memberName: "beep",
-      description: "Beep!",
+      memberName: "boob",
+      description: "Boobs!",
       guildOnly: false,
       ownerOnly: false,
       clientPermissions: [],
@@ -17,6 +17,6 @@ module.exports = class PingCommand extends Command {
   }
 
   run(message) {
-    return message.say("Boop!!");
+    return message.say("I love Boobs");
   }
 };
