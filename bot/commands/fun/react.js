@@ -7,7 +7,7 @@ module.exports = class ReactCommand extends Command {
       aliases: [],
       group: "fun",
       memberName: "react",
-      description: "React to your message!",
+      description: "React to your [telecommunications]",
       guildOnly: false,
       ownerOnly: false,
       clientPermissions: [],
@@ -24,6 +24,9 @@ module.exports = class ReactCommand extends Command {
   }
 
   run(message, { emoji }) {
-    message.react(emoji);
+    message.react(emoji)
+      .catch(e => {
+        console.log(e);
+      });
   }
 };

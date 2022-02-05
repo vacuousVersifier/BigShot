@@ -8,7 +8,7 @@ module.exports = class BiggifyCommand extends Command {
       aliases: ["bigletter"],
       group: "fun",
       memberName: "biggify",
-      description: "Haha letter go brrrrr",
+      description: "The letters grow [big] [BIG] [[BIGGER]]",
       guildOnly: false,
       ownerOnly: false,
       clientPermissions: [],
@@ -25,6 +25,9 @@ module.exports = class BiggifyCommand extends Command {
   }
 
   run(message, { text }) {
-    message.channel.send(biggifier(text));
+    message.say(biggifier(text))
+      .catch(e => {
+        console.log(e);
+      });
   }
 };

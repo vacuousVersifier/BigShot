@@ -7,7 +7,7 @@ module.exports = class SayInChannel extends Command {
       aliases: [],
       group: "fun",
       memberName: "sayinchannel",
-      description: "Says something in the channel specified",
+      description: "Send the channel's [[ID Number]] or #name",
       guildOnly: true,
       ownerOnly: false,
       clientPermissions: [],
@@ -29,6 +29,9 @@ module.exports = class SayInChannel extends Command {
   }
 
   run(message, { text, channel }) {
-    channel.send(text);
+    channel.send(text)
+      .catch(e => {
+        console.log(e);
+      });
   }
 };

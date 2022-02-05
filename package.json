@@ -30,7 +30,8 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "node": "^16.0.0",
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "sqlite3": "^5.0.2"
   },
   "engines": {
     "node": "v14.15.5",

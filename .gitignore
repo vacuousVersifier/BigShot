@@ -104,9 +104,4 @@ dist
 .env.test
 
 
-words.txt
-letters.txt
-words.json
-letters.json
-words.csv
-letters.csv
+bot/results/

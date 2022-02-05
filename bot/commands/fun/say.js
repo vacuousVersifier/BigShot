@@ -7,7 +7,7 @@ module.exports = class SayCommand extends Command {
       aliases: ["repeat"],
       group: "fun",
       memberName: "say",
-      description: "Repeats whatever you say",
+      description: "Is this phone broken? I just hear myself!!!!!",
       guildOnly: false,
       ownerOnly: false,
       clientPermissions: [],
@@ -24,6 +24,9 @@ module.exports = class SayCommand extends Command {
   }
 
   run(message, { text }) {
-    message.say(text);
+    message.say(text)
+      .catch(e => {
+        console.log(e);
+      });
   }
 };

@@ -1,4 +1,5 @@
 const { Command } = require("discord.js-commando");
+const { MessageEmbed } = require("discord.js");
 
 module.exports = class ServerCommand extends Command {
   constructor(client) {
@@ -7,7 +8,7 @@ module.exports = class ServerCommand extends Command {
       aliases: ["serverinfo"],
       group: "utility",
       memberName: "server",
-      description: "Get some server info",
+      description: "Get some [[JUICY RIB-EYE]] server info",
       guildOnly: true,
       ownerOnly: false,
       clientPermissions: [],
@@ -17,8 +18,16 @@ module.exports = class ServerCommand extends Command {
   }
 
   run(message) {
-    message.say(
-      `Server name: ${message.guild.name}\nTotal [LITTLE SPONGE]s: ${message.guild.memberCount}`
-    );
+    const embed = new MessageEmbed()
+      .setColor(this.client.getColor())
+      .addFields(
+        { name: "Server name", value: message.guild.name },
+        { name: "Total [LITTLE SPONGES]", value: message.guild.memberCount }
+      );
+
+    message.say(embed)
+      .catch(e => {
+        console.log(e);
+      });
   }
 };

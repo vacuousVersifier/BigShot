@@ -7,12 +7,11 @@ module.exports = class PruneCommand extends Command {
       aliases: ["purge"],
       group: "utility",
       memberName: "prune",
-      description: "Bulk delete message",
+      description: "[[WHOLE STORE SELL OUT]]",
       guildOnly: true,
       ownerOnly: false,
       clientPermissions: ["MANAGE_MESSAGES"],
       userPermissions: ["MANAGE_MESSAGES"],
-      throttling: { usages: 2, duration: 10 },
       args: [
         {
           key: "amount",
@@ -25,14 +24,18 @@ module.exports = class PruneCommand extends Command {
 
   run(message, { amount }) {
     if (amount <= 1 || amount > 100) {
-      return message.reply("That's not between [ONE CENT] and [[99% off!!]]");
+      message.reply("That's not between [ONE CENT] and [[99% off!!]]")
+        .catch(e => {
+          console.log(e);
+        });
+    } else {
+      message.channel.bulkDelete(amount, true)
+        .catch(err => {
+          console.error(err);
+          message.channel.send(
+            "OW IT BURNS! IT [cleans right off] MY FLESH!"
+          );
+        });
     }
-
-    message.channel.bulkDelete(amount, true).catch(err => {
-      console.error(err);
-      message.channel.send(
-        "OW IT BURNS! IT [cleans right off] MY FLESH!"
-      );
-    });
   }
 };

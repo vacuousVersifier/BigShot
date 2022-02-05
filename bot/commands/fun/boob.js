@@ -17,6 +17,9 @@ module.exports = class BoobCommand extends Command {
   }
 
   run(message) {
-    return message.say("I love Boobs");
+    message.say("I love Boobs")
+      .catch(e => {
+        console.log(e);
+      });
   }
 };

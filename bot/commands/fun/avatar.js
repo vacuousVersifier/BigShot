@@ -1,4 +1,5 @@
 const { Command } = require("discord.js-commando");
+const { MessageEmbed } = require("discord.js");
 
 module.exports = class ReactCommand extends Command {
   constructor(client) {
@@ -7,7 +8,7 @@ module.exports = class ReactCommand extends Command {
       aliases: [],
       group: "fun",
       memberName: "avatar",
-      description: "Get an avatar",
+      description: "Get an [[DAZZLING FACE]]",
       guildOnly: false,
       ownerOnly: false,
       clientPermissions: [],
@@ -17,22 +18,21 @@ module.exports = class ReactCommand extends Command {
         {
           key: "target",
           prompt: "Who's [Dazzling Faces!] do you want to [[Observatory]]",
-          type: "user",
-          default: ""
+          type: "user"
         }
       ]
     });
   }
 
   run(message, { target }) {
-    if (!target) {
-      return message.channel.send(`Your avatar: ${message.author.displayAvatarURL()}`);
-    }
+    const embed = new MessageEmbed()
+      .setColor(this.client.getColor())
+      .setTitle(`${target.username}'s Avatar`)
+      .setImage(target.displayAvatarURL());
 
-    const avatarList = message.mentions.users.map(user => {
-      return `${user.username}'s avatar: ${user.displayAvatarURL()}`;
-    });
-
-    message.channel.send(avatarList);
+    message.say(embed)
+      .catch(e => {
+        console.log(e);
+      });
   }
 };

@@ -1,4 +1,5 @@
 const { Command } = require("discord.js-commando");
+const { MessageEmbed } = require("discord.js");
 
 module.exports = class UserCommand extends Command {
   constructor(client) {
@@ -7,7 +8,7 @@ module.exports = class UserCommand extends Command {
       aliases: ["userinfo"],
       group: "utility",
       memberName: "user",
-      description: "Get some user info",
+      description: "[[Peeking]] some user info",
       guildOnly: true,
       ownerOnly: false,
       clientPermissions: [],
@@ -17,22 +18,23 @@ module.exports = class UserCommand extends Command {
         {
           key: "target",
           prompt: "Which [[LITTLE SPONGE]] do you want to [Read at the Library!!!]",
-          type: "user",
-          default: ""
+          type: "user"
         }
       ]
     });
   }
 
   run(message, { target }) {
-    if(!target) {
-      return message.say(
-        `Your username: ${message.author.username}\nYour ID: ${message.author.id}`
+    const embed = new MessageEmbed()
+      .setColor(this.client.getColor())
+      .addFields(
+        { name: "Username", value: target.username },
+        { name: "ID", value: target.id }
       );
-    }
 
-    return message.say(
-      `Their username: ${target.username}\nTheir ID: ${target.id}`
-    );
+    message.say(embed)
+      .catch(e => {
+        console.log(e);
+      });
   }
 };

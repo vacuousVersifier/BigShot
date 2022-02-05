@@ -8,8 +8,13 @@ const owner = "802317699157196850";
 const invite = "https://discord.gg/dFmgxrxU5A";
 
 const groups = [
-  ["fun", "Fun"],
-  ["utility", "Useful"]
+  ["fun", "[[FUN AND GAMES]]"],
+  ["utility", "[[Utility Belt]]"],
+  ["kromer", "Delicious Kromer!"]
 ];
 
-module.exports = { Prefix, Token, owner, invite, groups };
+const yellow = "#fff301";
+const pink = "#ffaec9";
+const colors = [yellow, pink];
+
+module.exports = { Prefix, Token, owner, invite, groups, colors };
