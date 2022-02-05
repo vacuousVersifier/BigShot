@@ -5,7 +5,7 @@ const Prefix = process.env.PREFIX;
 const Token = process.env.TOKEN;
 
 const owner = "802317699157196850";
-const invite = "https://discord.gg/dFmgxrxU5A";
+const invite = "https://discord.gg/jAuAwagpJU";
 
 const groups = [
   ["fun", "[[FUN AND GAMES]]"],

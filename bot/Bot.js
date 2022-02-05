@@ -2,6 +2,7 @@ const { CommandoClient } = require("discord.js-commando");
 const path = require("path");
 const swadesh = require("./swadesh");
 const Kromer = require("../persistence/KromerDatabase");
+const Suggestion = require("../persistence/SuggestionDatabase");
 
 module.exports = class Bot {
   constructor(Token, Prefix, owner, invite, groups, colors) {
@@ -14,6 +15,9 @@ module.exports = class Bot {
 
     this.kromerDB = new Kromer();
     this.kromerDB.initialize();
+
+    this.suggestionDB = new Suggestion();
+    this.suggestionDB.initialize();
   }
 
   initialize() {
@@ -47,6 +51,7 @@ module.exports = class Bot {
   run(callback) {
     this.client.on("ready", () => {
       this.client.kromerDB = this.kromerDB;
+      this.client.suggestionDB = this.suggestionDB;
       callback(this.client.user.tag, this.client.user.id);
     });
 
